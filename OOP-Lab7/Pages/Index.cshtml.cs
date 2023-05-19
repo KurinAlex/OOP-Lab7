@@ -1,20 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+
+using OOP_Lab7.Data;
 
 namespace OOP_Lab7.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public void OnGet()
-        {
+        public IList<Person> People { get; set; } = default!;
 
+        public async Task OnGetAsync()
+        {
+            if (_context.People != null)
+            {
+                People = await _context.People.ToListAsync();
+            }
         }
     }
 }
