@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 using OOP_Lab7.Data;
 
@@ -25,6 +24,7 @@ namespace OOP_Lab7.Pages
             }
 
             var person = await _context.People.FindAsync(id);
+
             if(person == null)
             {
                 return NotFound();

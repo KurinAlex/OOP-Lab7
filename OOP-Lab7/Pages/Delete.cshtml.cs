@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 using OOP_Lab7.Data;
 
@@ -55,11 +54,11 @@ namespace OOP_Lab7.Pages
             {
                 _context.People.Remove(person);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("Index");
             }
             catch
             {
-                return RedirectToAction("./Delete", new { id });
+                return RedirectToAction("Delete", new { id });
             }
         }
     }

@@ -39,12 +39,14 @@ namespace OOP_Lab7.Pages
         {
             _context.People.Attach(person).State = EntityState.Modified;
             await _context.Entry(person).Collection(p => p.Taxes).LoadAsync();
+
             foreach (var tax in person.Taxes)
             {
                 tax.UpdateAmount();
             }
+
             await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
+            return RedirectToPage("Index");
         }
     }
 }

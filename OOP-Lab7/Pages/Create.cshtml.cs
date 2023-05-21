@@ -54,7 +54,7 @@ namespace OOP_Lab7.Pages
             };
             Person.Taxes = taxes;
 
-            foreach(var tax in taxes)
+            foreach (var tax in taxes)
             {
                 tax.UpdateAmount();
             }
@@ -62,7 +62,7 @@ namespace OOP_Lab7.Pages
             _context.People.Add(Person);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("Index");
         }
     }
 }
