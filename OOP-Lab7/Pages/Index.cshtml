@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>People</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -21,26 +21,33 @@
             <th>
                 @Html.DisplayNameFor(model => model.People[0].Surname)
             </th>
+            <th>
+                Taxes Sum
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.People)
+        @foreach (var person in Model.People)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @Html.DisplayFor(modelItem => person.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => person.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Surname)
+                    @Html.DisplayFor(modelItem => person.Surname)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    @person.Taxes.Sum(t => t.Amount)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@person.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@person.Id" class="btn btn-secondary">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@person.Id" class="btn btn-warning">Delete</a>
+                    <a asp-page-handler="Download" asp-route-id="@person.Id" class="btn btn-info" title="Download person taxes info">Download</a>
                 </td>
             </tr>
         }

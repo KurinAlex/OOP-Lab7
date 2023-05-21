@@ -5,8 +5,6 @@ public class JobTax : Tax
 	private const double MaxBenefitedAmount = 2684.0;
 	private const double BenefitAmount = 0.5 * MaxBenefitedAmount;
 
-	public JobTax() : base() { }
-
 	protected override double Percent => 15.0;
 	public override string Name => "Job";
 

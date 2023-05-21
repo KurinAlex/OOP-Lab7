@@ -1,0 +1,81 @@
+﻿@page
+@model EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Person</h4>
+<hr />
+<form method="post">
+    <input asp-for="Person.Id" hidden />
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Person.Name" class="control-label"></label>
+                <input asp-for="Person.Name" class="form-control" />
+                <span asp-validation-for="Person.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Surname" class="control-label"></label>
+                <input asp-for="Person.Surname" class="form-control" />
+                <span asp-validation-for="Person.Surname" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <input type="submit" value="Edit" class="btn btn-primary w-100" />
+                </div>
+                <div class="col-4">
+                    <a asp-page="Index" class="btn btn-secondary w-100">Back to List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Person.MainJobIncome" class="control-label"></label>
+                <input asp-for="Person.MainJobIncome" class="form-control" />
+                <span asp-validation-for="Person.MainJobIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.AdditionalJobIncome" class="control-label"></label>
+                <input asp-for="Person.AdditionalJobIncome" class="form-control" />
+                <span asp-validation-for="Person.AdditionalJobIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.AuthorAwardsAmount" class="control-label"></label>
+                <input asp-for="Person.AuthorAwardsAmount" class="form-control" />
+                <span asp-validation-for="Person.AuthorAwardsAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.GoodsSellsIncome" class="control-label"></label>
+                <input asp-for="Person.GoodsSellsIncome" class="form-control" />
+                <span asp-validation-for="Person.GoodsSellsIncome" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Person.MoneyGiftsAmount" class="control-label"></label>
+                <input asp-for="Person.MoneyGiftsAmount" class="form-control" />
+                <span asp-validation-for="Person.MoneyGiftsAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.GoodsGiftsAmount" class="control-label"></label>
+                <input asp-for="Person.GoodsGiftsAmount" class="form-control" />
+                <span asp-validation-for="Person.GoodsGiftsAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.AbroadTransfersAmount" class="control-label"></label>
+                <input asp-for="Person.AbroadTransfersAmount" class="form-control" />
+                <span asp-validation-for="Person.AbroadTransfersAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.ChildrenCount" class="control-label"></label>
+                <input asp-for="Person.ChildrenCount" class="form-control" />
+                <span asp-validation-for="Person.ChildrenCount" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>

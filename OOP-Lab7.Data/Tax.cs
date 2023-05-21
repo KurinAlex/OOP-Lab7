@@ -2,11 +2,6 @@
 
 public abstract class Tax
 {
-    public Tax()
-    {
-        UpdateAmount();
-    }
-
     public int Id { get; set; }
 
     public required Person Person { get; init; }
@@ -14,6 +9,10 @@ public abstract class Tax
     protected abstract double Percent { get; }
     public abstract string Name { get; }
 
-    public void UpdateAmount() => Amount = GetTaxedAmount() * Percent;
+    public void UpdateAmount()
+    {
+        double amount = Percent / 100.0 * GetTaxedAmount() ;
+        Amount = amount < 0.0 ? 0.0 : amount;
+    }
     protected abstract double GetTaxedAmount();
 }

@@ -2,8 +2,6 @@
 
 public class AbroadTransfersTax : Tax
 {
-	public AbroadTransfersTax() : base() { }
-
 	protected override double Percent => 18.0;
 	public override string Name => "Abroad transfers";
 
