@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-
 namespace OOP_Lab7.Data;
 
 public class ApplicationDbContext : DbContext
