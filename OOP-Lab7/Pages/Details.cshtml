@@ -1,0 +1,108 @@
+﻿@page
+@model DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.Name)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.Name)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.Surname)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.Surname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.MainJobIncome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.MainJobIncome)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.AdditionalJobIncome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.AdditionalJobIncome)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.AuthorAwardsAmount)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.AuthorAwardsAmount)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.GoodsSellsIncome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.GoodsSellsIncome)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.MoneyGiftsAmount)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.MoneyGiftsAmount)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.GoodsGiftsAmount)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.GoodsGiftsAmount)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.AbroadTransfersAmount)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.AbroadTransfersAmount)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Person.ChildrenCount)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Person.ChildrenCount)
+            </dd>
+        </dl>
+        <a asp-page="Index" class="btn btn-primary">Back to List</a>
+    </div>
+
+    <table class="col table">
+        <tr>
+            <th>
+                Tax
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
+        @foreach (var tax in Model.Person.Taxes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => tax.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => tax.Amount)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

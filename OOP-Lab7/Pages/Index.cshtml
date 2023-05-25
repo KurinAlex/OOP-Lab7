@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>
+    People
+    <a asp-page="Create" class="btn btn-primary" title="Create new person data">
+        <i class="bi bi-plus-square-fill"></i>
+    </a>
+</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.People[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.People[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.People[0].Surname)
+            </th>
+            <th>
+                Taxes Sum
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model.People)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => person.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => person.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => person.Surname)
+                </td>
+                <td>
+                    @person.Taxes.Sum(t => t.Amount)
+                </td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@person.Id" class="btn btn-primary" title="Look at person data">
+                        <i class="bi bi-info-square-fill"></i>
+                    </a>
+                    <a asp-page="Edit" asp-route-id="@person.Id" class="btn btn-warning" title="Edit person data">
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
+                    <a asp-page-handler="Download" asp-route-id="@person.Id" class="btn btn-info" title="Download taxes data">
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                    </a>
+                    <a asp-page="Delete" asp-route-id="@person.Id" class="btn btn-danger" title="Delete person data">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
